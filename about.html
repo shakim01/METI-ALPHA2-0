@@ -5,65 +5,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About - Meti Alpha</title>
   <style>
-    :root { 
-      --primary-color: #2e7d32;
-      --secondary-color: #66bb6a;
-      --highlight-color: #ffc107;
-      --text-color: #fff;
-      --background-color: #f0fdf4;
-      --footer-color: #222;
-    }
-
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom right, var(--primary-color), var(--secondary-color));
-      color: #333;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #2b2b2b;
+      color: #fff;
     }
 
     nav {
-      background-color: var(--footer-color);
-      display: flex;
-      justify-content: space-around;
+      background-color: #181818;
       padding: 15px 0;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
     }
 
     nav a {
-      color: var(--text-color);
-      text-decoration: none;
+      color: #fff;
       font-size: 1.1em;
+      text-decoration: none;
+      margin: 0 20px;
+      padding: 10px;
     }
 
     nav a:hover {
-      color: var(--highlight-color);
+      color: #4CAF50;
     }
 
-    .about-section {
+    .about-container {
+      display: flex;
+      justify-content: space-around;
       padding: 50px 20px;
       text-align: center;
-      background-color: white;
-      margin-top: 50px;
     }
 
-    .about-section h2 {
+    .about-box {
+      background-color: #333;
+      border-radius: 8px;
+      padding: 40px;
+      width: 45%;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .about-box:hover {
+      transform: scale(1.05);
+    }
+
+    .about-box h2 {
       font-size: 2.5em;
-      color: var(--primary-color);
+      color: #4CAF50;
     }
 
-    .about-section p {
+    .about-box p {
       font-size: 1.2em;
-      color: #555;
-      line-height: 1.8em;
-      max-width: 800px;
-      margin: auto;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .about-box ul {
+      text-align: left;
+      font-size: 1.2em;
+      color: #ccc;
+      padding-left: 20px;
+    }
+
+    .about-box ul li {
+      margin: 10px 0;
+    }
+
+    .cta-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 1.1em;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .cta-button:hover {
+      background-color: #45a049;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      background-color: var(--footer-color);
+      background-color: #181818;
       color: white;
     }
+
+    .highlight-text {
+      color: #ffbb33;
+      font-weight: bold;
+    }
+
   </style>
 </head>
 <body>
@@ -71,16 +106,31 @@
   <nav>
     <a href="index.html">Home</a>
     <a href="investment.html">Investment</a>
+    <a href="deposit-withdrawal.html">Deposit & Withdrawal</a>
     <a href="about.html">About</a>
   </nav>
 
-  <section class="about-section">
-    <h2>About Meti Alpha</h2>
-    <p>Meti Alpha is a leading trading and investment firm dedicated to providing smart, strategic, and profitable investment opportunities in the global market. Our goal is to help clients grow their wealth through informed decision-making and tailored strategies.</p>
+  <section class="about-container">
+    <div class="about-box">
+      <h2>Welcome to Meti Alpha</h2>
+      <p>We are a cutting-edge investment platform focused on empowering retail traders and investors in the Forex and commodities markets.</p>
+      <p>Led by <span class="highlight-text">Anthony Mwangi</span>, a certified trader, Meti Alpha specializes in strategic, data-driven trading methodologies, providing actionable insights, and market analysis.</p>
+    </div>
+
+    <div class="about-box">
+      <h2>Investment Packages</h2>
+      <p>At Meti Alpha, we offer three investment packages designed to meet different financial goals. Whether you're new to trading or an experienced investor, we have the perfect package for you:</p>
+      <ul>
+        <li><strong>Silver Package</strong> – $100 (40% return per week) – <em>Expected return: $40/week</em></li>
+        <li><strong>Gold Package</strong> – $500 (40% return per week) – <em>Expected return: $200/week</em></li>
+        <li><strong>Platinum Package</strong> – $1000 (40% return per week) – <em>Expected return: $400/week</em></li>
+      </ul>
+      <a href="investment.html" class="cta-button">Choose Your Package</a>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Meti Alpha</p>
+    <p>&copy; 2025 Meti Alpha. All Rights Reserved.</p>
   </footer>
 
 </body>
