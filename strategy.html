@@ -1,58 +1,66 @@
 <style>
-  /* Table Styles with Highlight and Box Design */
-  table {
-    width: 100%;
-    margin-top: 30px;
-    border-collapse: collapse;
-    border: 2px solid #333; /* Well-defined border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for table */
+  /* General Box Styles */
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 30px auto;
+    max-width: 600px;
+    border: 2px solid #333;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
-  table th, table td {
-    padding: 15px;
-    text-align: center;
+  .item {
     border: 1px solid #ddd;
-  }
-
-  table th {
-    background-color: #111111;
-    color: white;
-    font-weight: bold;
-  }
-
-  table tr:nth-child(even) {
+    padding: 15px;
     background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
-  table tr:nth-child(3) {
-    background-color: #ffeb3b; /* Highlight color for $500 row */
+  .highlight {
+    background-color: #ffeb3b; /* Highlight for $500 row */
     font-weight: bold;
+  }
+
+  .item-header {
+    font-weight: bold;
+    background-color: #111;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
   }
 </style>
 
-<table>
-  <thead>
-    <tr>
-      <th>Investment Amount</th>
-      <th>Weekly Return (40%)</th>
-      <th>Total after 2 Weeks</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>$100</td>
-      <td>$40</td>
-      <td>$180</td>
-    </tr>
-    <tr>
-      <td>$500</td>
-      <td>$200</td>
-      <td>$700</td>
-    </tr>
-    <tr>
-      <td>$1000</td>
-      <td>$400</td>
-      <td>$1400</td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <div class="item">
+    <div class="item-header">Investment Amount: $100</div>
+    <div class="details">
+      <span>Weekly Return (40%): $40</span>
+      <span>Total after 2 Weeks: $180</span>
+    </div>
+  </div>
+
+  <div class="item highlight">
+    <div class="item-header">Investment Amount: $500</div>
+    <div class="details">
+      <span>Weekly Return (40%): $200</span>
+      <span>Total after 2 Weeks: $700</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">Investment Amount: $1000</div>
+    <div class="details">
+      <span>Weekly Return (40%): $400</span>
+      <span>Total after 2 Weeks: $1400</span>
+    </div>
+  </div>
+</div>
