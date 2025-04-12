@@ -4,80 +4,178 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Investment Strategy | Meti Alpha</title>
+  <!-- Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     /* General Styles */
-    body {
-      font-family: 'Arial', sans-serif;
+    * {
       margin: 0;
       padding: 0;
-      background-color: #121212; /* Dark background for Binance-like look */
-      color: #E5E5E5; /* Light text for readability */
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #E5E5E5;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    /* Container for content */
+    /* Navigation Bar */
+    nav {
+      background-color: #181a20;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .nav-link {
+      color: #eaecef;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    .nav-link:hover {
+      background-color: #2b3139;
+    }
+    .nav-link.active {
+      background-color: #F7B500; /* Softer Gold */
+      color: #000;
+    }
+
+    /* Main Container */
     .container {
       max-width: 1200px;
       margin: 50px auto;
       padding: 20px;
-      background-color: #1F1F1F; /* Dark background */
+      background-color: #1F1F1F;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       border-radius: 8px;
+      position: relative;
     }
 
     /* Header Styles */
     h1, h2 {
-      color: #F2B10F; /* Binance Yellow */
+      color: #F7B500;
       font-weight: 600;
       margin-bottom: 15px;
-    }
-
-    /* Section Style for Investment */
-    .item {
-      background-color: #222222; /* Slightly lighter for the cards */
-      border-left: 5px solid #F2B10F; /* Yellow border for emphasis */
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-    }
-
-    .item-header {
-      color: #F2B10F;
-      font-size: 1.2rem;
-      font-weight: 600;
-      padding: 10px;
+      font-size: 2.2rem;
       text-align: center;
     }
 
-    .item-details {
+    /* Investment Calculator Section */
+    .calculator-container {
+      background-color: #222222;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+      transform: rotate(-3deg);
+      margin: 50px auto;
+      max-width: 600px;
       display: flex;
-      justify-content: space-between;
-      font-size: 1rem;
+      flex-direction: column;
+      align-items: center;
+      animation: float 2s infinite ease-in-out;
+    }
+    .calculator-container h3 {
+      color: #F7B500;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .calculator-container input {
+      width: 80%;
+      padding: 12px;
+      margin: 10px 0;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      border: 1px solid #444;
+      background-color: #333;
       color: #E5E5E5;
-      margin-top: 15px;
+      text-align: center;
+    }
+    .calculator-container button {
+      background-color: #F7B500;
+      color: black;
+      padding: 12px 35px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .calculator-container button:hover {
+      background-color: #FF9A00;
+    }
+    .result {
+      color: #E5E5E5;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      text-align: center;
     }
 
-    /* Highlight the $500 investment */
-    .highlight {
-      background-color: #F2B10F;
-      color: #000;
-      font-weight: 600;
+    /* Interactive Slider Section */
+    .interactive-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+      padding: 20px;
+      background-color: #222222;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .slider-container {
+      width: 80%;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .slider-container input[type="range"] {
+      width: 100%;
+    }
+    .slider-output {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #E5E5E5;
     }
 
+    /* Chart Container */
+    .chart-container {
+      width: 100%;
+      max-width: 600px;
+      height: 300px;
+      margin: 30px auto 0;
+    }
+
+    /* Floating Animation */
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* CTA Button */
     .cta-button {
       display: inline-block;
-      background-color: #F2B10F;  /* Binance Yellow */
+      background-color: #F7B500;
       color: black;
       padding: 15px 40px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
       border-radius: 5px;
-      width: 100%;
       margin-top: 30px;
       text-align: center;
       transition: background-color 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     }
-
     .cta-button:hover {
       background-color: #FF9A00;
     }
@@ -86,112 +184,189 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 30px;
+      margin-top: 40px;
       background-color: #1F1F1F;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
     }
-
-    table th,
-    table td {
+    table th, table td {
       padding: 15px;
       text-align: center;
       border: 1px solid #444444;
       color: #E5E5E5;
     }
-
     table th {
       background-color: #333333;
       font-weight: 600;
     }
-
     table tr:nth-child(even) {
       background-color: #2C2C2C;
     }
 
     /* Responsive Styles */
     @media (max-width: 768px) {
-      .item-details {
-        flex-direction: column;
-        text-align: center;
+      .calculator-container,
+      .interactive-section {
+        width: 90%;
       }
-
       .cta-button {
         width: auto;
       }
     }
-
   </style>
 </head>
 <body>
 
-  <!-- Investment Details Section -->
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="investment.html" class="nav-link">Investment</a>
+    <a href="strategy.html" class="nav-link active">Strategy</a>
+    <a href="login.html" class="nav-link">Login</a>
+  </nav>
+
+  <!-- Main Content Container -->
   <div class="container">
-    <h1>Investment Overview</h1>
-    <p>Welcome to Meti Alpha's Investment Plans. We aim to deliver a consistent 40% weekly return on investments through a mix of Forex and commodities trading. Below, we have outlined our packages and financial expectations with simple projections for clarity.</p>
+    <h1>Investment Strategy Overview</h1>
+    <p>Welcome to Meti Alpha's Investment Strategy page. Our strategy aims to provide a consistent 40% weekly return on investments, compounded bi-weekly. Start today and discover how your financial future can grow with Meti Alpha.</p>
 
-    <h2>Investment Packages</h2>
-    
-    <!-- $100 Investment -->
-    <div class="item">
-      <div class="item-header">Investment Amount: $100</div>
-      <div class="item-details">
-        <span>Weekly Return (40%): $40</span>
-        <span>Total after 2 Weeks: $180</span>
+    <!-- Investment Calculator Section -->
+    <h2>Investment Calculator</h2>
+    <div class="calculator-container">
+      <h3>Calculate Your Potential Return</h3>
+      <p>Input your desired investment amount (between $50 and $1000) to calculate your projected returns after 2 weeks:</p>
+      <input type="number" id="investmentAmount" placeholder="Enter Investment Amount" min="50" max="1000" required>
+      <button onclick="calculateReturn()">Calculate</button>
+      <div id="result" class="result"></div>
+    </div>
+
+    <!-- Interactive Slider Section -->
+    <div class="interactive-section">
+      <h2>Growth Projection</h2>
+      <p>Adjust the slider to view how different investments may grow over 2 weeks:</p>
+      <div class="slider-container">
+        <input type="range" id="investmentSlider" min="50" max="1000" value="500">
+        <p class="slider-output">Investment: $<span id="sliderValue">500</span></p>
+      </div>
+      <div class="chart-container">
+        <canvas id="growthGraph"></canvas>
       </div>
     </div>
 
-    <!-- $500 Investment -->
-    <div class="item highlight">
-      <div class="item-header">Investment Amount: $500</div>
-      <div class="item-details">
-        <span>Weekly Return (40%): $200</span>
-        <span>Total after 2 Weeks: $700</span>
-      </div>
-    </div>
-
-    <!-- $1000 Investment -->
-    <div class="item">
-      <div class="item-header">Investment Amount: $1000</div>
-      <div class="item-details">
-        <span>Weekly Return (40%): $400</span>
-        <span>Total after 2 Weeks: $1400</span>
-      </div>
-    </div>
-
-    <h2>Financial Growth Projection</h2>
-    <p>Based on our trading strategy, here's a projection of your financial growth over a 2-week period:</p>
-    
+    <!-- Financial Summary Table -->
+    <h2>Return Projections</h2>
+    <p>Here's a summary of how investments grow based on our trading strategy:</p>
     <table>
       <thead>
         <tr>
-          <th>Investment Amount</th>
+          <th>Investment Range</th>
           <th>Weekly Return (40%)</th>
           <th>Total after 2 Weeks</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>$100</td>
-          <td>$40</td>
-          <td>$180</td>
+          <td>$50 - $300</td>
+          <td>$20 - $120</td>
+          <td>$70 - $420</td>
         </tr>
         <tr>
-          <td>$500</td>
-          <td>$200</td>
-          <td>$700</td>
+          <td>$300 - $700</td>
+          <td>$120 - $280</td>
+          <td>$420 - $980</td>
         </tr>
         <tr>
-          <td>$1000</td>
-          <td>$400</td>
-          <td>$1400</td>
+          <td>$700 - $1000</td>
+          <td>$280 - $400</td>
+          <td>$980 - $1400</td>
         </tr>
       </tbody>
     </table>
 
-    <!-- CTA Button to Start Investing -->
-    <a href="investment.html" class="cta-button">Start Investing</a>
+    <!-- Call-to-Action Button -->
+    <a href="investment.html" class="cta-button">Start Investing Now</a>
   </div>
+
+  <script>
+    // Investment Calculator Function
+    function calculateReturn() {
+      const investment = parseFloat(document.getElementById("investmentAmount").value);
+      if (investment >= 50 && investment <= 1000) {
+        const weeklyReturn = investment * 0.4;
+        const totalAfterTwoWeeks = investment + 2 * weeklyReturn;
+        document.getElementById("result").innerHTML = `
+          Your Investment: $${investment}<br>
+          Weekly Return (40%): $${weeklyReturn.toFixed(2)}<br>
+          Total after 2 Weeks: $${totalAfterTwoWeeks.toFixed(2)}
+        `;
+      } else {
+        document.getElementById("result").innerHTML = "Please enter a valid amount between $50 and $1000.";
+      }
+    }
+
+    // Slider and Chart Setup
+    const investmentSlider = document.getElementById("investmentSlider");
+    const sliderValue = document.getElementById("sliderValue");
+
+    investmentSlider.addEventListener("input", function() {
+      sliderValue.textContent = investmentSlider.value;
+      updateChart(investmentSlider.value);
+    });
+
+    // Initial chart setup using Chart.js
+    const ctx = document.getElementById("growthGraph").getContext("2d");
+    let growthChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ["Start", "After 1 Week", "After 2 Weeks"],
+        datasets: [{
+          label: 'Total after 2 Weeks',
+          data: [500, 500 + (500 * 0.4), 500 + 2 * (500 * 0.4)],
+          borderColor: '#F7B500',
+          backgroundColor: 'rgba(247, 181, 0, 0.2)',
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              stepSize: 100
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return '$' + context.parsed.y;
+              }
+            }
+          }
+        }
+      }
+    });
+
+    // Function to update the chart based on slider value
+    function updateChart(investment) {
+      const invest = parseFloat(investment);
+      const weeklyReturn = invest * 0.4;
+      const totalAfterTwoWeeks = invest + 2 * weeklyReturn;
+      growthChart.data.datasets[0].data = [
+        invest,
+        invest + weeklyReturn,
+        totalAfterTwoWeeks
+      ];
+      growthChart.update();
+    }
+  </script>
 
 </body>
 </html>

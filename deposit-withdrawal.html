@@ -5,6 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Deposit & Withdrawal - Meti Alpha</title>
   <style>
+    /* Navigation Styles */
+    nav {
+      background-color: #181a20;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    nav a {
+      color: #eaecef;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #2b3139;
+    }
+
+    /* General Styles */
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,27 +36,9 @@
       color: #fff;
     }
 
-    nav {
-      background-color: #181818;
-      padding: 15px 0;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
-    }
-
-    nav a {
-      color: #fff;
-      font-size: 1.1em;
-      text-decoration: none;
-      margin: 0 20px;
-      padding: 10px;
-    }
-
-    nav a:hover {
-      color: #4CAF50;
-    }
-
     .deposit-withdrawal-container {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-around;
       padding: 50px 20px;
       text-align: center;
@@ -43,8 +49,10 @@
       border-radius: 8px;
       padding: 40px;
       width: 45%;
+      min-width: 300px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
       transition: transform 0.3s ease-in-out;
+      margin-bottom: 30px;
     }
 
     .deposit-box:hover {
@@ -52,12 +60,12 @@
     }
 
     .deposit-box h2 {
-      font-size: 2.5em;
+      font-size: 2.2em;
       color: #4CAF50;
     }
 
     .deposit-box p {
-      font-size: 1.2em;
+      font-size: 1.1em;
       color: #ccc;
       margin-bottom: 20px;
     }
@@ -66,20 +74,22 @@
       width: 100%;
       padding: 12px;
       margin: 10px 0;
-      border: 1px solid #333;
+      border: 1px solid #444;
       border-radius: 4px;
       background-color: #2c2c2c;
       color: #fff;
-      font-size: 1.1em;
+      font-size: 1em;
     }
 
     .cta-button {
+      display: inline-block;
       background-color: #4CAF50;
       color: white;
       padding: 12px 24px;
       border-radius: 30px;
       font-size: 1.1em;
       text-decoration: none;
+      margin-top: 10px;
       transition: all 0.3s ease-in-out;
     }
 
@@ -87,33 +97,39 @@
       background-color: #45a049;
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #181818;
-      color: white;
-    }
-
     .balance-summary {
       margin-top: 30px;
-      font-size: 1.3em;
+      text-align: center;
+      font-size: 1.2em;
       color: #ccc;
     }
 
     .balance-summary p {
       margin: 5px 0;
     }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #181818;
+      color: white;
+      margin-top: 50px;
+    }
   </style>
 </head>
 <body>
 
+  <!-- Navigation Bar -->
   <nav>
-    <a href="index.html">Home</a>
-    <a href="investment.html">Investment</a>
-    <a href="about.html">About</a>
-    <a href="deposit-withdrawal.html">Deposit & Withdrawal</a>
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="investment.html" class="nav-link">Investment</a>
+    <a href="strategy.html" class="nav-link">Strategy</a>
+    <a href="deposit-withdrawal.html" class="nav-link active">Deposit & Withdrawal</a>
+    <a href="login.html" class="nav-link">Login</a>
   </nav>
 
+  <!-- Deposit and Withdrawal Section -->
   <section class="deposit-withdrawal-container">
     <div class="deposit-box">
       <h2>Deposit Funds</h2>
@@ -144,6 +160,7 @@
     </div>
   </section>
 
+  <!-- Balance Summary -->
   <div class="balance-summary">
     <h2>Your Investment Balance</h2>
     <p>Total Balance: $1,200.00</p>
@@ -151,6 +168,7 @@
     <p>Expected Weekly Return: $480.00 (40%)</p>
   </div>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Meti Alpha</p>
   </footer>
