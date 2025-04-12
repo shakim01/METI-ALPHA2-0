@@ -5,48 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home - Meti Alpha</title>
   <style>
-    :root {
-      --primary-color: #2e7d32;
-      --secondary-color: #66bb6a;
-      --highlight-color: #ffc107;
-      --text-color: #fff;
-      --background-color: #f0fdf4;
-      --footer-color: #222;
-    }
-
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom right, var(--primary-color), var(--secondary-color));
-      color: #333;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #2b2b2b, #1c1c1c);
+      color: #fff;
     }
 
     nav {
-      background-color: var(--footer-color);
-      display: flex;
-      justify-content: space-around;
+      background-color: #181818;
       padding: 15px 0;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
     }
 
     nav a {
-      color: var(--text-color);
-      text-decoration: none;
+      color: #fff;
       font-size: 1.1em;
+      text-decoration: none;
+      margin: 0 20px;
+      padding: 10px;
     }
 
     nav a:hover {
-      color: var(--highlight-color);
+      color: #4CAF50; /* Binance-like green */
     }
 
     .hero {
       text-align: center;
-      padding: 80px 20px;
-      background: linear-gradient(to bottom right, var(--primary-color), var(--secondary-color));
+      padding: 120px 20px;
+      background: linear-gradient(45deg, #4CAF50, #1c1c1c);
       color: white;
     }
 
     .hero h1 {
-      font-size: 3em;
+      font-size: 3.5em;
       margin-bottom: 20px;
     }
 
@@ -56,23 +49,23 @@
     }
 
     .cta-button {
-      background-color: white;
-      color: var(--primary-color);
-      padding: 12px 24px;
-      border-radius: 5px;
-      font-weight: bold;
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px 40px;
+      border-radius: 30px;
+      font-size: 1.2em;
+      transition: all 0.3s ease-in-out;
       text-decoration: none;
-      transition: background-color 0.3s;
     }
 
     .cta-button:hover {
-      background-color: #c8e6c9;
+      background-color: #45a049;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      background-color: var(--footer-color);
+      background-color: #181818;
       color: white;
     }
   </style>
@@ -87,7 +80,7 @@
 
   <section class="hero">
     <h1>Welcome to Meti Alpha</h1>
-    <p>Your trusted partner in smart trading and investment strategies.</p>
+    <p>Your trusted partner in smart trading and investment.</p>
     <a class="cta-button" href="investment.html">Start Investing</a>
   </section>
 
