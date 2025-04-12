@@ -4,73 +4,104 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us | Meti Alpha</title>
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* General Page Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      text-align: center;
+      padding: 20px;
+      color: white;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background-color: #1b1b1b;
+      display: flex;
+      justify-content: space-around;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 10px 15px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #00b140;  /* Binance green */
+      border-radius: 5px;
+    }
+
+    /* About Section */
+    .about {
+      background: linear-gradient(135deg, #00b140, #009c3b);
+      padding: 80px 20px;
+      color: white;
+      text-align: center;
+    }
+
+    .about .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .about h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .about h2 {
+      font-size: 2rem;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+
+    .cta-button {
+      background-color: #ffcc00;  /* Binance Yellow */
+      color: black;
+      padding: 15px 40px;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #e6b800;
+    }
+  </style>
 </head>
 <body>
-
-<body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f1f1f1;
-}
-
-nav {
-  background-color: #1a1a1a;
-  display: flex;
-  justify-content: space-around;
-  padding: 10px;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 10px;
-}
-
-nav a:hover {
-  background-color: #333;
-  border-radius: 5px;
-}
-
-.about {
-  background: linear-gradient(135deg, #28a745, #1e7e34);
-  color: white;
-  text-align: center;
-  padding: 80px 20px;
-}
-
-.about h1 {
-  font-size: 3em;
-  margin-bottom: 20px;
-}
-
-.about p {
-  font-size: 1.2em;
-  margin-bottom: 30px;
-}
-
-.cta-button {
-  background-color: #ffcc00;
-  color: black;
-  padding: 15px 30px;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-  background-color: #e6b800;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #1a1a1a;
-  color: white;
-}
 
   <!-- Navigation Bar -->
   <nav>
@@ -90,7 +121,6 @@ footer {
       <h2>Why Choose Us?</h2>
       <p>At Meti Alpha, we don’t just follow trends — we anticipate them. Our approach combines advanced analysis with a commitment to long-term, sustainable returns. Whether you're a beginner looking to learn or an experienced trader seeking an edge, Meti Alpha is your trusted partner in navigating the financial markets.</p>
       
-      <!-- Correct Button Link -->
       <a href="strategy.html" class="cta-button">Start Investing</a>
     </div>
   </section>
