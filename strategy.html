@@ -1,218 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Investment Strategy | Meti Alpha</title>
-  <style>
-    /* General Page Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+  /* Table Styles with Highlight and Box Design */
+  table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+    border: 2px solid #333; /* Well-defined border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for table */
+  }
 
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-      line-height: 1.6;
-    }
+  table th, table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+  table th {
+    background-color: #111111;
+    color: white;
+    font-weight: bold;
+  }
 
-    footer {
-      background-color: #111111;
-      text-align: center;
-      padding: 20px;
-      color: white;
-    }
+  table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
 
-    /* Navigation Bar */
-    nav {
-      background-color: #111111;
-      display: flex;
-      justify-content: space-around;
-      padding: 15px 0;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+  table tr:nth-child(3) {
+    background-color: #ffeb3b; /* Highlight color for $500 row */
+    font-weight: bold;
+  }
+</style>
 
-    nav a {
-      color: white;
-      font-size: 1.1rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      padding: 10px 15px;
-      transition: background-color 0.3s ease;
-    }
-
-    nav a:hover {
-      background-color: #f0b400;  /* Binance Yellow */
-      border-radius: 5px;
-    }
-
-    /* Strategy Section */
-    .strategy {
-      background: linear-gradient(135deg, #111111, #333333);
-      padding: 80px 20px;
-      color: white;
-      text-align: center;
-    }
-
-    .strategy .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .strategy h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-
-    .strategy p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-    }
-
-    .strategy h2 {
-      font-size: 2rem;
-      margin-top: 30px;
-      margin-bottom: 20px;
-    }
-
-    .strategy ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-
-    .strategy ul li {
-      font-size: 1.1rem;
-      margin-bottom: 10px;
-    }
-
-    .column-content {
-      column-count: 2; /* Number of columns */
-      column-gap: 20px; /* Space between columns */
-    }
-
-    .column-content ul {
-      padding-left: 20px; /* Ensure list items are indented properly */
-    }
-
-    .cta-button {
-      background-color: #f0b400;  /* Binance Yellow */
-      color: black;
-      padding: 15px 40px;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-
-    .cta-button:hover {
-      background-color: #e68900;
-    }
-
-    /* Table Styles */
-    table {
-      width: 100%;
-      margin-top: 30px;
-      border-collapse: collapse;
-    }
-
-    table th, table td {
-      padding: 12px;
-      text-align: center;
-      border: 1px solid #ddd;
-    }
-
-    table th {
-      background-color: #111111;
-      color: white;
-    }
-
-    table tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Navigation Bar -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="investment.html">Investment</a>
-    <a href="strategy.html">Strategy</a>
-    <a href="login.html">Login</a>
-  </nav>
-
-  <!-- Strategy Section -->
-  <section class="strategy">
-    <div class="container">
-      <h1>Our Investment Strategy</h1>
-      <div class="column-content">
-        <p>
-          At Meti Alpha, our trading strategy is rooted in precision, discipline, and calculated risk-taking.
-          We combine technical and fundamental analysis to find high-probability trades, providing consistent returns.
-        </p>
-        <h2>Our Method</h2>
-        <ul>
-          <li><strong>Technical Analysis:</strong> We use chart patterns, indicators, and price action to identify profitable opportunities.</li>
-          <li><strong>Fundamental Analysis:</strong> We factor in macroeconomic news, sentiment, and global financial events into our decision-making process.</li>
-          <li><strong>Risk Management:</strong> A strict risk-to-reward ratio ensures your capital is protected while maximizing profit potential.</li>
-        </ul>
-        <h2>Strengths of Our Strategy</h2>
-        <ul>
-          <li>Adaptable to market conditions: Suitable for both trending and range-bound markets.</li>
-          <li>Provides consistent returns: Aims for long-term stability and growth.</li>
-          <li>Minimized risk exposure: With advanced risk management techniques, we strive to protect your investments while maximizing returns.</li>
-        </ul>
-      </div>
-
-      <h2>Expected Returns</h2>
-      <p>Our strategy targets 40% weekly returns. Below is a simple calculation to illustrate potential profits:</p>
-      <table>
-        <thead>
-          <tr>
-            <th>Investment Amount</th>
-            <th>Weekly Return (40%)</th>
-            <th>Total after 2 Weeks</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>$100</td>
-            <td>$40</td>
-            <td>$180</td>
-          </tr>
-          <tr>
-            <td>$500</td>
-            <td>$200</td>
-            <td>$700</td>
-          </tr>
-          <tr>
-            <td>$1000</td>
-            <td>$400</td>
-            <td>$1400</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <a href="investment.html" class="cta-button">Start Investing</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Meti Alpha. All rights reserved.</p>
-  </footer>
-
-</body>
-</html>
+<table>
+  <thead>
+    <tr>
+      <th>Investment Amount</th>
+      <th>Weekly Return (40%)</th>
+      <th>Total after 2 Weeks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$100</td>
+      <td>$40</td>
+      <td>$180</td>
+    </tr>
+    <tr>
+      <td>$500</td>
+      <td>$200</td>
+      <td>$700</td>
+    </tr>
+    <tr>
+      <td>$1000</td>
+      <td>$400</td>
+      <td>$1400</td>
+    </tr>
+  </tbody>
+</table>
