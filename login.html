@@ -1,156 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login | Meti Alpha</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - MetiAlpha</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
   <style>
-    /* General Page Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* Login Page Specific Styles */
+    .login-hero {
+      background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(243, 156, 18, 0.1));
     }
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #181a20; /* Dark background to match Binance style */
-      color: #fff; /* White text color for contrast */
+    
+    .auth-container {
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
+      gap: 50px;
+      margin: 5rem 0;
     }
-
-    .login-container {
-      background-color: #1b1b1b; /* Dark background for the login box */
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      width: 320px;
+    
+    .auth-card {
+      max-width: 400px;
+      width: 100%;
     }
-
-    h2 {
+    
+    .auth-header {
       text-align: center;
-      margin-bottom: 20px;
-      color: #fcd535; /* Binance yellow */
+      margin-bottom: 2rem;
     }
-
-    label {
+    
+    .auth-header h2 {
+      font-size: 2rem;
+    }
+    
+    .input-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .input-group label {
       display: block;
-      margin-bottom: 10px;
-      font-size: 1rem;
-      color: #eaecef;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
     }
-
-    input {
+    
+    .input-group input {
       width: 100%;
-      padding: 12px;
-      margin-bottom: 20px;
-      border-radius: 5px;
-      border: 1px solid #555;
-      font-size: 1rem;
-      background-color: #2d2d2d;
-      color: #fff;
-      transition: border 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    input:focus {
-      border: 1px solid #fcd535; /* Binance yellow */
-      box-shadow: 0 0 5px rgba(252, 213, 53, 0.4);
-    }
-
-    .login-button {
-      width: 100%;
-      padding: 12px;
-      background-color: #fcd535; /* Binance yellow */
-      color: black;
+      padding: 12px 15px;
+      border-radius: 4px;
       border: none;
-      border-radius: 5px;
-      font-size: 1.1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--light);
+      font-size: 1rem;
+    }
+    
+    .input-group input:focus {
+      outline: 2px solid var(--accent);
+    }
+    
+    .auth-button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      background-color: var(--accent);
+      color: var(--dark);
+      font-weight: 600;
+      font-size: 1rem;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s;
     }
-
-    .login-button:hover {
-      background-color: #e6b800; /* Darker yellow on hover */
+    
+    .auth-button:hover {
+      background-color: #e67e22;
     }
-
-    .error-message {
-      color: red;
-      font-size: 0.9rem;
-      margin-top: -10px;
-      margin-bottom: 20px;
+    
+    .auth-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
     }
-
-    .forgot-password {
-      text-align: center;
-      font-size: 0.9rem;
-    }
-
-    .forgot-password a {
-      color: #fcd535; /* Binance yellow */
+    
+    .auth-footer a {
+      color: var(--light);
       text-decoration: none;
+      transition: color 0.3s;
     }
-
-    .forgot-password a:hover {
-      text-decoration: underline;
+    
+    .auth-footer a:hover {
+      color: var(--accent);
+    }
+    
+    .auth-benefits {
+      max-width: 400px;
+    }
+    
+    .auth-benefits h3 {
+      margin-bottom: 1.5rem;
+    }
+    
+    .auth-benefits ul {
+      list-style: none;
+    }
+    
+    .auth-benefits li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .auth-benefits i {
+      margin-right: 10px;
+      color: var(--accent);
+    }
+    
+    @media (max-width: 768px) {
+      .auth-container {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
-
-  <div class="login-container">
-    <h2>Login to Meti Alpha</h2>
-
-    <!-- Error message -->
-    <div class="error-message" id="error-message"></div>
-
-    <form id="loginForm">
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" placeholder="Enter username" required />
-
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" placeholder="Enter password" required />
-
-      <button type="submit" class="login-button">Login</button>
-    </form>
-
-    <div class="forgot-password">
-      <a href="#">Forgot Password?</a>
+  <div class="overlay">
+    <nav>
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-chart-line"></i>
+        <span>MetiAlpha</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+        <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+        <a href="education.html" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
+        <a href="strategies.html" class="nav-link"><i class="fas fa-chess"></i> Strategies</a>
+        <a href="tools.html" class="nav-link"><i class="fas fa-tools"></i> Tools</a>
+        <a href="login.html" class="nav-link active"><i class="fas fa-sign-in-alt"></i> Login</a>
+      </div>
+    </nav>
+    
+    <section class="hero login-hero">
+      <div class="container">
+        <h1>Member Access</h1>
+        <p class="subtitle">Sign in to access premium trading content and tools</p>
+      </div>
+    </section>
+    
+    <div class="container">
+      <div class="auth-container">
+        <div class="auth-card card">
+          <div class="auth-header">
+            <h2><i class="fas fa-unlock-alt"></i> Member Login</h2>
+            <p>Enter your credentials to access premium content</p>
+          </div>
+          
+          <form class="auth-form">
+            <div class="input-group">
+              <label><i class="fas fa-envelope"></i> Email</label>
+              <input type="email" placeholder="trading@example.com" required>
+            </div>
+            
+            <div class="input-group">
+              <label><i class="fas fa-lock"></i> Password</label>
+              <input type="password" placeholder="••••••••" required>
+            </div>
+            
+            <button type="submit" class="auth-button">
+              <i class="fas fa-sign-in-alt"></i> Sign In
+            </button>
+            
+            <div class="auth-footer">
+              <a href="#">Forgot password?</a>
+              <a href="#">Create account</a>
+            </div>
+          </form>
+        </div>
+        
+        <div class="auth-benefits card">
+          <h3><i class="fas fa-crown"></i> Premium Members Enjoy:</h3>
+          <ul>
+            <li><i class="fas fa-check"></i> Live trading room access</li>
+            <li><i class="fas fa-check"></i> Institutional research reports</li>
+            <li><i class="fas fa-check"></i> Strategy backtests</li>
+            <li><i class="fas fa-check"></i> Priority customer support</li>
+            <li><i class="fas fa-check"></i> Exclusive webinars</li>
+            <li><i class="fas fa-check"></i> Advanced trading tools</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
-
-  <script>
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent form submission to demonstrate interactivity
-
-      // Get input values
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-
-      // Validate inputs (example validation)
-      if (username === '' || password === '') {
-        displayError('Please fill in both fields.');
-        return;
-      }
-
-      // Simulate successful login (you can replace this with actual backend validation)
-      if (username === 'admin' && password === 'admin123') {
-        alert('Login Successful!');
-        window.location.href = 'index.html'; // Redirect to home page (index.html)
-      } else {
-        displayError('Invalid username or password.');
-      }
-    });
-
-    // Function to display error message
-    function displayError(message) {
-      const errorMessage = document.getElementById('error-message');
-      errorMessage.textContent = message;
-    }
-  </script>
-
 </body>
 </html>
