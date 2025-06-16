@@ -96,4 +96,24 @@
     </div>
   </div>
 </body>
+  <script>
+  // Store course information in localStorage when enrolling
+  function enrollInCourse(courseTitle) {
+    localStorage.setItem('selectedCourse', courseTitle);
+    window.open('enrollment.html', 'enrollmentWindow', 'width=800,height=600');
+  }
+
+  // Update the enrollment links to pass course info
+  document.addEventListener('DOMContentLoaded', function() {
+    const enrollLinks = document.querySelectorAll('.course-cta');
+    enrollLinks.forEach(link => {
+      const courseTitle = link.closest('.course-card').querySelector('h3').textContent;
+      link.onclick = function(e) {
+        e.preventDefault();
+        enrollInCourse(courseTitle);
+        return false;
+      };
+    });
+  });
+</script>
 </html>
